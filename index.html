@@ -137,6 +137,58 @@
     }
   </style>
 
+  <style>
+    /* 基础容器样式 */
+    .notion-callout {
+      display: flex;
+      /* 开启Flex布局 */
+      align-items: flex-start;
+      /* 图标和文字顶部对齐（如果文字很多） */
+      background-color: #F1F1EF;
+      /* Notion经典的浅灰色背景 */
+      padding: 16px 16px;
+      /* 内边距 */
+      border-radius: 4px;
+      /* 圆角 */
+      margin-bottom: 16px;
+      /* 块与块的间距 */
+      color: #37352f;
+      /* 字体颜色 */
+      font-family: sans-serif;
+      /* 字体 */
+      line-height: 1.5;
+      /* 行高 */
+    }
+
+    /* 图标样式 */
+    .notion-callout-icon {
+      margin-right: 12px;
+      /* 图标和文字的间距 */
+      font-size: 24px;
+      /* 图标大小 */
+      line-height: 1;
+      /* 防止图标撑高行高 */
+      user-select: none;
+      /* 防止图标被选中复制 */
+    }
+
+    /* 文字区域样式 */
+    .notion-callout-text {
+      word-break: break-word;
+      /* 防止长单词溢出 */
+    }
+
+    /* 红色背景/警告 */
+    .notion-callout.warning {
+      background-color: #FBE4E4;
+    }
+
+    /* 蓝色背景/信息 */
+    .notion-callout.info {
+      background-color: #E6F3F7;
+    }
+  </style>
+
 </head>
 
 <!--黑色遮罩-->
@@ -145,7 +197,7 @@
 <!--预览容器，存放点击放大后的图片-->
 <div class="enlargeContainer" id="enlargeContainer">
   <!-- 关闭按钮，一个叉号图片 -->
-  <img src="static/close_pic.png" class="close" id="close">
+  <img src="static/cross.png" class="close" id="close">
 </div>
 
 <body>
@@ -186,7 +238,7 @@
               <a href="#afgen-ablation" class="list-select"><b>Ablation Study</b></a>
             </li>
             <li>
-              <a href="TBD" class="list-select" target="_blank">
+              <a href="https://github.com/sizigi/AliasingFreeNeuralAudioSynthesis" class="list-select" target="_blank">
                 <svg class="w-6 h-6 text-gray-900 hover:text-blue-700" aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd"
@@ -196,7 +248,8 @@
               </a>
             </li>
             <li>
-              <a href="TBD" class="list-select" target="_blank">
+              <a href="https://huggingface.co/spellbrush/AliasingFreeNeuralAudioSynthesis" class="list-select"
+                target="_blank">
                 <img class="h-6 w-6" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" />
               </a>
             </li>
@@ -226,10 +279,10 @@
           <a href="TBD" target="_blank">
             <img src="https://img.shields.io/badge/arXiv-Paper-red.svg">
           </a>
-          <a href="TBD" target="_blank">
+          <a href="https://github.com/sizigi/AliasingFreeNeuralAudioSynthesis" target="_blank">
             <img src="https://img.shields.io/badge/GitHub-Repo-blue">
           </a>
-          <a href="TBD" target="_blank">
+          <a href="https://huggingface.co/spellbrush/AliasingFreeNeuralAudioSynthesis" target="_blank">
             <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Model-yellow">
           </a>
         </div>
@@ -505,6 +558,14 @@
                 href="https://github.com/Aria-K-Alethia/BigCodec">BigCodec</a> as the baseline systems.
               Representative examples can be found below:
             </p>
+          </div>
+
+          <div class="notion-callout">
+            <div class="notion-callout-icon">💡</div>
+            <div class="notion-callout-text">
+              Click an image in the table to zoom in and view in high resolution. Click the "X" in the top-right corner
+              to close.
+            </div>
           </div>
 
           <div class="mt-8 mb-8">
@@ -5439,8 +5500,8 @@
                   const domains = ["Speech", "Singing Voice", "Music", "Audio"];
                   const settings = ["Academic", "Industrial"];
 
-                  let selectedDomain = "Speech";
-                  let selectedSetting = "Academic";
+                  let selectedDomain = "Singing Voice";
+                  let selectedSetting = "Industrial";
 
                   const styleContainer = document.getElementById("domainContainer");
                   domains.forEach(domain => {
@@ -5487,6 +5548,15 @@
                 We conduct experiments on dynamic bitrate encoding to explore the effectiveness of our Pupu-Codec
                 models.
               </p>
+            </div>
+
+            <div class="notion-callout">
+              <div class="notion-callout-icon">💡</div>
+              <div class="notion-callout-text">
+                Click an image in the table to zoom in and view in high resolution. Click the "X" in the top-right
+                corner
+                to close.
+              </div>
             </div>
 
             <div class="mt-8 mb-8">
@@ -6772,6 +6842,16 @@
               </p>
             </div>
 
+            <div class="notion-callout">
+              <div class="notion-callout-icon">💡</div>
+              <div class="notion-callout-text">
+                Click an image in the table to zoom in and view in high resolution. Click the "X" in the top-right
+                corner
+                to close.
+              </div>
+            </div>
+            <br>
+
             <div class="w-full overflow-x-auto">
               <div class="relative w-[2500px] mx-auto text-sm text-left rtl:text-right text-gray-900">
                 <table style="width: 100%;">
@@ -7238,7 +7318,7 @@
       }
 
       window.onload = function () {
-        showVCPage('Speech-Academic');
+        showVCPage('Singing-Industrial');
         showVCPageBitrate('8kbps');
       };
 
